@@ -1,4 +1,16 @@
 /* Application-wide Styles */
+header {
+  background-image: url(https://1000logos.net/wp-content/uploads/2017/05/Pokemon-Logo-640x400.png ); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho real da sua imagem */
+  background-size: 200px 100px; /* Tamanho máximo da imagem */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  background-position: center; /* Centraliza a imagem*/
+  height: 10px; /* Altura do cabeçalho */
+  text-align: center; /* Centraliza o conteúdo do cabeçalho */
+  color: darkblue; /* Cor do texto */
+  padding-top: 110px; /* Espaçamento superior interno */
+}
+
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Pokemon } from '../pokemon';
+import { POKEMONS } from '../mock-pokemons';
+import { FormsModule } from '@angular/forms';
+import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-pokemons',
@@ -8,13 +11,12 @@ import { Pokemon } from '../pokemon';
 })
 export class PokemonsComponent {
 
- pokemon: Pokemon = {
-    id: 1,
-    name: "Bulbasaur",
-    height: 0.7,
-    weight: 6.9,
-    types: ["Grass", "Poison"],
-    family: "Bulbasaur"
+  pokemons = POKEMONS;
+  selectedPokemon?: Pokemon;
 
+  
+
+  onSelect(pokemon: Pokemon): void {
+    this.selectedPokemon = pokemon;
   }
 }
