@@ -10,7 +10,8 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     AppComponent,
     PokemonsComponent,
-    HeaderComponent
+    HeaderComponent,
+    PokemonsComponent
   ],
   imports: [
     BrowserModule,
