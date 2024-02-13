@@ -9,14 +9,25 @@ import { DataService } from '../services/data.service';
 export class PokemonListComponent implements OnInit {
 
   pokemons: any[] = [];
+  page: number = 1;
+  total: number | undefined;
+
 
   constructor(
     private dataService: DataService
   ) { }
 
   ngOnInit(): void {
-    this.dataService.getPokemons()
+
+    this.getPokemons();
+
+  }
+
+  getPokemons() {
+    this.dataService.getPokemons(10, this.page + 0)
       .subscribe((response: any) => {
+        this.total = response.count;
+
         response.results.forEach((result: { name: string; }) => {
           this.dataService.getMoreData(result.name)
             .subscribe((UniqResponse: any) => {
