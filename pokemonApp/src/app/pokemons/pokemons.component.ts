@@ -12,14 +12,14 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class PokemonsComponent {
 
-  //constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService) { }
 
-  //pokemons = POKEMONS;
-  //selectedPokemon?: Pokemon;
+  pokemons = POKEMONS;
+  selectedPokemon?: Pokemon;
 
   
 
-  //onSelect(pokemon: Pokemon): void {
-  //  this.selectedPokemon = pokemon;
-  //}
+  onSelect(pokemon: Pokemon): void {
+    this.selectedPokemon = pokemon;
+  }
 }

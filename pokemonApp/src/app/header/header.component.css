@@ -2,5 +2,13 @@ header {
   padding: 20px 0px;
   text-align: center;
   background-color: dodgerblue;
-}
 
+  background-image: url(https://1000logos.net/wp-content/uploads/2017/05/Pokemon-Logo-640x400.png );
+  background-size: 200px 100px; /* Tamanho máximo da imagem */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  background-position: center; /* Centraliza a imagem*/
+  height: 60px; /* Altura do cabeçalho */
+  text-align: center; /* Centraliza o conteúdo do cabeçalho */
+  color: white; /* Cor do texto */
+  padding-top: 110px; /* Espaçamento superior interno */
+}
