@@ -8,6 +8,7 @@ import { PokemonsComponent } from './pokemons/pokemons.component';
 import { HeaderComponent } from './header/header.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PokemonsComponent,
     HeaderComponent,
     PokemonsComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonSearchComponent
   ],
   imports: [
     BrowserModule,

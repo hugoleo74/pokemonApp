@@ -646,3 +646,143 @@ export const POKEMONS: Pokemon[] = [
     </select>
 
     ---------------------------------------------------------------------------------
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header com Imagem de Fundo</title>
+    <style>
+        /* Estilo para o cabeçalho */
+        header {
+            background-image: url('caminho/para/sua/imagem.jpg'); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho real da sua imagem */
+            background-size: cover; /* Faz a imagem cobrir todo o cabeçalho */
+            height: 300px; /* Altura do cabeçalho */
+            text-align: center; /* Centraliza o conteúdo do cabeçalho */
+            color: white; /* Cor do texto */
+            padding-top: 100px; /* Espaçamento superior interno */
+        }
+        /* Estilo para o texto no cabeçalho */
+        header h1 {
+            font-size: 36px; /* Tamanho da fonte do título */
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Meu Cabeçalho com Imagem de Fundo</h1>
+    </header>
+
+    <!-- Conteúdo da página -->
+    <div>
+        <p>Aqui vem o conteúdo da sua página...</p>
+    </div>
+</body>
+</html>
+
+
+---------------------------------------------------------------------------------------
+
+C:\upskill\angular\pokemonApp\pokemonApp\src\images\pokemon-logo.jpg
+
+---------------------------------------------------------------------------------------
+13/02/2024
+
+***app.component.html***
+
+<header>{{title | uppercase}}</header>
+
+<app-pokemons></app-pokemons>
+
+--------------------------------------------------------------------------------------
+header {
+  background-image: url(https://1000logos.net/wp-content/uploads/2017/05/Pokemon-Logo-640x400.png );
+  background-size: 200px 100px; /* Tamanho máximo da imagem */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  background-position: center; /* Centraliza a imagem*/
+  height: 10px; /* Altura do cabeçalho */
+  text-align: center; /* Centraliza o conteúdo do cabeçalho */
+  color: darkblue; /* Cor do texto */
+  padding-top: 110px; /* Espaçamento superior interno */
+}
+
+
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+---------------------------------------------------------------------------------------
+
+***pokemons.component.ts***
+
+import { Component } from '@angular/core';
+import { Pokemon } from '../pokemon';
+import { POKEMONS } from '../mock-pokemons';
+import { FormsModule } from '@angular/forms';
+import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { PokemonService } from '../services/pokemon.service';
+
+@Component({
+  selector: 'app-pokemons',
+  templateUrl: './pokemons.component.html',
+  styleUrls: ['./pokemons.component.css']
+})
+export class PokemonsComponent {
+
+  constructor(private pokemonService: PokemonService) { }
+
+  pokemons = POKEMONS;
+  selectedPokemon?: Pokemon;
+
+  
+
+  onSelect(pokemon: Pokemon): void {
+    this.selectedPokemon = pokemon;
+  }
+}
+
+---------------------------------------------------------------------------------------
+
+***pokemons.component.html***
+
+<h2>My Pokemon</h2>
+
+<div class="clearfix">
+  <!-- Coluna esquerda -->
+  <div class="coluna-esquerda">
+    <ul class="pokemons">
+      <li *ngFor="let pokemon of pokemons">
+        <button [class.selected]="pokemon === selectedPokemon" type="button" (click)="onSelect(pokemon)">
+          <span class="id">{{pokemon.id}}</span>
+          <span class="name">{{pokemon.name | uppercase}}</span>
+          <!--<span class="height">{{pokemon.height}}</span>
+          <span class="weight">{{pokemon.types}}</span>
+          <span class="types">{{pokemon.family}}</span>-->
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="coluna-direita">
+
+    <div *ngIf="selectedPokemon">
+      <h2>{{selectedPokemon.name | uppercase}} FEATURES</h2>
+      <div>Identificação: {{selectedPokemon.id}}</div>
+      <div>Nome: {{selectedPokemon.name}}</div>
+      <div>Altura: {{selectedPokemon.height}}</div>
+      <div>Peso: {{selectedPokemon.weight}}</div>
+      <div>Tipo: {{selectedPokemon.types}}</div>
+      <div>Família: {{selectedPokemon.family}}</div>
+
+      <label for="pokemon-name">Pokemon name: </label>
+      <input id="pokemon-name" [(ngModel)]="selectedPokemon.name" placeholder="name">
+    </div>
+
+  </div>
+</div>
+
+
