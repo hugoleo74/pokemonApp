@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
+import { httpInterceptorProviders } from './hpptinterceptorproviders';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { PokemonSearchComponent } from './pokemon-search/pokemon-search.componen
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
