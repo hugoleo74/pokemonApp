@@ -1,29 +1,37 @@
 <h2>My Pokemon</h2>
-<ul class="pokemons">
-  <li *ngFor="let pokemon of pokemons">
-    <button [class.selected]="pokemon === selectedPokemon" type="button" (click)="onSelect(pokemon)">
-      <span class="id">{{pokemon.id}}</span>
-      <span class="name">{{pokemon.name}}</span>
-      <span class="height">{{pokemon.height}}</span>
-      <span class="weight">{{pokemon.types}}</span>
-      <span class="types">{{pokemon.family}}</span>
-    </button>
-  </li>
-</ul>
 
-<div *ngIf="selectedPokemon">
-  <h2>{{selectedPokemon.name | uppercase}} FEATURES</h2>
-  <div>Identificação: {{selectedPokemon.id}}</div>
-  <div>Nome: {{selectedPokemon.name}}</div>
-  <div>Altura: {{selectedPokemon.height}}</div>
-  <div>Peso: {{selectedPokemon.weight}}</div>
-  <div>Tipo: {{selectedPokemon.types}}</div>
-  <div>Família: {{selectedPokemon.family}}</div>
-
-  <label for="pokemon-name">Pokemon name: </label>
-    <input id="pokemon-name" [(ngModel)]="selectedPokemon.name" placeholder="name">
+<div class="clearfix">
+  <!-- Coluna esquerda -->
+  <div class="coluna-esquerda">
+    <ul class="pokemons">
+      <li *ngFor="let pokemon of pokemons">
+        <button [class.selected]="pokemon === selectedPokemon" type="button" (click)="onSelect(pokemon)">
+          <span class="id">{{pokemon.id}}</span>
+          <span class="name">{{pokemon.name | uppercase}}</span>
+          <!--<span class="height">{{pokemon.height}}</span>
+          <span class="weight">{{pokemon.types}}</span>
+          <span class="types">{{pokemon.family}}</span>-->
+        </button>
+      </li>
+    </ul>
   </div>
 
+  <div class="coluna-direita">
 
+    <div *ngIf="selectedPokemon">
+      <h2>{{selectedPokemon.name | uppercase}} FEATURES</h2>
+      <div>Identificação: {{selectedPokemon.id}}</div>
+      <div>Nome: {{selectedPokemon.name}}</div>
+      <div>Altura: {{selectedPokemon.height}}</div>
+      <div>Peso: {{selectedPokemon.weight}}</div>
+      <div>Tipo: {{selectedPokemon.types}}</div>
+      <div>Família: {{selectedPokemon.family}}</div>
+
+      <label for="pokemon-name">Pokemon name: </label>
+      <input id="pokemon-name" [(ngModel)]="selectedPokemon.name" placeholder="name">
+    </div>
+
+  </div>
+</div>
 
 

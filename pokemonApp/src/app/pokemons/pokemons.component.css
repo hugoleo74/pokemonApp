@@ -71,3 +71,22 @@
   .pokemons .name {
     align-self: center;
   }
+
+/* Estilo para a coluna esquerda */
+.coluna-esquerda {
+  width: 30%; /* Largura da coluna esquerda */
+  float: left; /* Alinha à esquerda */
+}
+
+/* Estilo para a coluna direita */
+.coluna-direita {
+  width: 70%; /* Largura da coluna direita */
+  float: left; /* Alinha à esquerda */
+}
+
+/* Limpa o float para evitar problemas de layout */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

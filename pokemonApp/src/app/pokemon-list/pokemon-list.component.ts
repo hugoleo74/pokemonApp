@@ -24,7 +24,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemons() {
-    this.dataService.getPokemons(10, this.page + 0)
+    this.dataService.getPokemons(14, this.page + 0)
       .subscribe((response: any) => {
         this.total = response.count;
 
@@ -37,5 +37,13 @@ export class PokemonListComponent implements OnInit {
         });
       });
   }
-
+  changeImage(pokemon: any, isHovering: boolean) {
+    if (isHovering) {
+      pokemon.sprites.front_default = pokemon.sprites.back_default;
+    } else {
+      pokemon.sprites.front_default = pokemon.sprites.front_default;
+    }
+  }
 }
+
+

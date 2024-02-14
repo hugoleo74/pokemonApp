@@ -1,24 +1,30 @@
 <!-- Pokemons com exibição no formato de Grade -->
 <div class="pokemon-grid">
   <div class="box" *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 10, currentPage: page, totalItems: total}">
-    <img [src]="pokemon.sprites.front_default" alt="Pokemon"/>
+
     <h3>{{ pokemon.name | uppercase }}</h3>
     <p>
-      <b>Type:</b> {{ pokemon.types[0].type.name }}
+      <b>Tipo:</b> {{ pokemon.types[0].type.name }}
     </p>
     <p>
-      <b>Height:</b> {{ pokemon.height }}
+      <b>Altura:</b> {{ pokemon.height }}
     </p>
     <p>
-      <b>Health:</b> {{ pokemon.stats[0].base_stat }}
+      <b>Energia:</b> {{ pokemon.stats[0].base_stat }}
     </p>
     <p>
-      <b>Attack Power:</b> {{ pokemon.stats[1].base_stat }}
+      <b>Força de Ataque:</b> {{ pokemon.stats[1].base_stat }}
     </p>
-  </div>
- 
-</div>
 
+    <div class="pokemon-image"
+         [ngStyle]="{'background-image': 'url(' + (pokemon.isHovering ? pokemon.sprites.back_default : pokemon.sprites.front_default) + ')'}"
+         (mouseover)="pokemon.isHovering = true"
+         (mouseout)="pokemon.isHovering = false">
+      <div class="hover-overlay"></div>
+    </div>
+
+  </div>
+</div>
 <pagination-controls (pageChange)="page = $event; pokemons = []; getPokemons()"></pagination-controls>
 
 
